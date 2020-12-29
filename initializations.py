@@ -105,6 +105,7 @@ class Distribution(nn.Module):
 
 def initialize(target_model, distribution_model):
     log_probs = []
+    last_module = None
     for i, m in enumerate(target_model.children()):
         which_activation = {isinstance(
             m, activation): activation for activation in activation_ids.keys()}
